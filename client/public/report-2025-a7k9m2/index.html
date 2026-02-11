@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ぷろらぼ 2025年度 活動報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   RESET & VARIABLES
+   ═══════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --royal: #4169E1;
+  --royal-dark: #2d4db8;
+  --royal-light: #6b8ef0;
+  --royal-pale: #E0F2FE;
+  --royal-ghost: #eef4ff;
+  --purple: #6A0DAD;
+  --purple-light: #9b4dca;
+  --purple-pale: #F3E8FF;
+  --gold: #FFD700;
+  --gold-deep: #d4a800;
+  --gold-pale: #FFF8DC;
+  --smoke: #F5F5F5;
+  --charcoal: #333333;
+  --charcoal-light: #666666;
+  --charcoal-muted: #999999;
+  --white: #ffffff;
+
+  --font-display: 'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --radius: 20px;
+  --radius-sm: 14px;
+  --radius-xs: 10px;
+}
+
+html{
+  font-size: 15px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--charcoal);
+  background: var(--smoke);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════
+   ドットグリッドテクスチャ (テック感)
+   ═══════════════════════════════════════ */
+body::before{
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(65,105,225,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ═══════════════════════════════════════
+   PAGE CONTAINER
+   ═══════════════════════════════════════ */
+.page{
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════
+   REVEAL ANIMATION
+   ═══════════════════════════════════════ */
+.reveal{
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.reveal.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-1{transition-delay:.05s}
+.stagger-2{transition-delay:.12s}
+.stagger-3{transition-delay:.19s}
+.stagger-4{transition-delay:.26s}
+.stagger-5{transition-delay:.33s}
+
+/* ═══════════════════════════════════════
+   SECTION BASE
+   ═══════════════════════════════════════ */
+section{
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════
+   ★ HERO
+   ═══════════════════════════════════════ */
+.hero{
+  padding: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+.hero-bg{
+  background: linear-gradient(155deg, var(--royal) 0%, var(--purple) 100%);
+  padding: 48px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+/* 幾何学パターン装飾 */
+.hero-bg::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255,215,0,0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+/* コードライン装飾 */
+.hero-bg::after{
+  content: '';
+  position: absolute;
+  top: 20px; left: 20px;
+  width: 60px; height: 3px;
+  background: rgba(255,215,0,0.4);
+  border-radius: 2px;
+  box-shadow:
+    0 12px 0 rgba(255,255,255,0.15),
+    0 24px 0 rgba(255,255,255,0.08),
+    72px 0 0 rgba(255,255,255,0.1),
+    72px 12px 0 rgba(255,215,0,0.2);
+}
+.hero-curve{
+  position: absolute;
+  bottom: -1px;
+  left: 0; right: 0;
+  height: 36px;
+  background: var(--smoke);
+  clip-path: ellipse(56% 100% at 50% 100%);
+}
+
+.hero-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  background: rgba(255,215,0,0.2);
+  border: 1px solid rgba(255,215,0,0.3);
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.hero-badge svg{width:12px;height:12px;stroke:var(--gold);fill:none;stroke-width:2.5}
+
+.hero-title{
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+.hero-sub{
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.hero-period{
+  display: inline-block;
+  padding: 5px 16px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.04em;
+}
+
+/* キャラクター */
+.hero-character{
+  position: absolute;
+  right: 8px;
+  bottom: 36px;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  animation: hero-float 5s ease-in-out infinite;
+}
+.hero-character::before{
+  content: '';
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.4) 60%, transparent 72%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.hero-character img{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)) brightness(1.08);
+}
+@keyframes hero-float{
+  0%,100%{ transform: translateY(0) rotate(0deg); }
+  50%{ transform: translateY(-10px) rotate(2deg); }
+}
+
+/* ═══════════════════════════════════════
+   ★ SECTION LABEL
+   ═══════════════════════════════════════ */
+.sec-label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-top: 24px;
+}
+.sec-icon{
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sec-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sec-icon.ic-blue{background:var(--royal-pale);color:var(--royal)}
+.sec-icon.ic-purple{background:var(--purple-pale);color:var(--purple)}
+.sec-icon.ic-gold{background:var(--gold-pale);color:var(--gold-deep)}
+
+.sec-title{
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--charcoal);
+  letter-spacing: 0.02em;
+}
+.sec-line{
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--royal-pale), transparent);
+  border-radius: 1px;
+}
+
+/* ═══════════════════════════════════════
+   ★ GREETING
+   ═══════════════════════════════════════ */
+.greeting{
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  box-shadow: 0 2px 20px rgba(65,105,225,0.06);
+  border: 1px solid rgba(65,105,225,0.08);
+  position: relative;
+}
+.greeting::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, var(--royal), var(--purple));
+}
+.greeting-body{
+  font-size: 0.86rem;
+  line-height: 2;
+  color: var(--charcoal-light);
+}
+.greeting-body p{margin-bottom: 10px}
+.greeting-body p:last-child{margin-bottom: 0}
+.greeting-sign{
+  text-align: right;
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--royal);
+}
+
+/* ═══════════════════════════════════════
+   ★ DIVIDER
+   ═══════════════════════════════════════ */
+.divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 0;
+  margin: 6px 20px;
+}
+.divider::before,.divider::after{
+  content:'';flex:1;height:1px;
+  background: linear-gradient(90deg, transparent, var(--royal-pale), transparent);
+}
+.divider-mark{
+  width: 6px; height: 6px;
+  background: var(--royal-pale);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+/* ═══════════════════════════════════════
+   ★ PHILOSOPHY
+   ═══════════════════════════════════════ */
+.philosophy{
+  background: linear-gradient(135deg, var(--royal) 0%, var(--purple) 100%);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.philosophy::before{
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 140px; height: 140px;
+  background: rgba(255,215,0,0.08);
+  border-radius: 50%;
+}
+.philosophy-quote{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 22px;
+  position: relative;
+}
+.philosophy-pillars{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.pillar{
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 14px 10px;
+  text-align: center;
+}
+.pillar svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:4px}
+.pillar-name{font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:0.02em}
+.pillar-desc{font-size:0.62rem;opacity:0.75;margin-top:2px;line-height:1.5}
+
+/* ═══════════════════════════════════════
+   ★ SUPPORT CARDS
+   ═══════════════════════════════════════ */
+.support-card{
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 0;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+.sc-top{
+  padding: 18px 18px 14px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.sc-badge{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sc-badge svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sc-badge.bg-royal{background:var(--royal-pale);color:var(--royal)}
+.sc-badge.bg-purple{background:var(--purple-pale);color:var(--purple)}
+.sc-badge.bg-gold{background:var(--gold-pale);color:var(--gold-deep)}
+
+.sc-info{flex:1}
+.sc-title{font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:var(--charcoal);margin-bottom:4px}
+.sc-feature{
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--royal), var(--purple));
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+.sc-desc{
+  font-size: 0.8rem;
+  color: var(--charcoal-light);
+  line-height: 1.8;
+  padding: 0 18px 4px;
+}
+/* キャラ付きカード */
+.sc-with-char{
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.sc-with-char .sc-desc-area{flex: 1; padding: 0 14px 14px 18px;}
+.sc-char{
+  width: 90px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+.sc-char img{width:80px; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1))}
+
+.sc-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0 18px 16px;
+}
+.sc-tag{
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: var(--smoke);
+  color: var(--charcoal-light);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+/* カラーアクセントライン */
+.sc-accent{height:3px;border-radius:0 0 var(--radius) var(--radius)}
+.sc-accent.ac-royal{background:linear-gradient(90deg, var(--royal), var(--royal-light))}
+.sc-accent.ac-purple{background:linear-gradient(90deg, var(--purple), var(--purple-light))}
+.sc-accent.ac-gold{background:linear-gradient(90deg, var(--gold-deep), var(--gold))}
+
+/* ═══════════════════════════════════════
+   ★ SEASON TIMELINE
+   ═══════════════════════════════════════ */
+.season-timeline{display:flex;flex-direction:column;gap:20px}
+.season-card{
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.season-header{
+  padding:14px 20px;
+  display:flex;align-items:center;gap:12px;
+  color:var(--white);
+}
+.season-header svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+.season-name{font-family:var(--font-display);font-size:1rem;font-weight:800;letter-spacing:0.02em}
+.season-months{font-size:0.72rem;opacity:0.85;margin-left:auto;font-weight:500}
+.season-spring .season-header{background:linear-gradient(135deg, #e879a4 0%, #f4a5c0 100%)}
+.season-summer .season-header{background:linear-gradient(135deg, var(--royal) 0%, #5b8def 100%)}
+.season-autumn .season-header{background:linear-gradient(135deg, #d4890e 0%, var(--gold) 100%)}
+.season-winter .season-header{background:linear-gradient(135deg, var(--purple) 0%, #9b5de5 100%)}
+.season-body{
+  background:var(--white);padding:16px 20px;
+}
+.season-item{
+  position:relative;padding-left:18px;margin-bottom:14px;
+}
+.season-item:last-child{margin-bottom:0}
+.season-item::before{
+  content:'';position:absolute;left:0;top:8px;
+  width:8px;height:8px;border-radius:50%;
+}
+.season-spring .season-item::before{background:#e879a4}
+.season-summer .season-item::before{background:var(--royal)}
+.season-autumn .season-item::before{background:#d4890e}
+.season-winter .season-item::before{background:var(--purple)}
+.season-item-title{font-family:var(--font-display);font-size:0.86rem;font-weight:700;color:var(--charcoal);margin-bottom:3px}
+.season-item-text{font-size:0.76rem;color:var(--charcoal-light);line-height:1.7}
+.season-gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:14px;
+}
+.season-gallery .sg-wide{
+  grid-column:1 / -1;
+}
+.season-gallery img{
+  width:100%;height:120px;
+  object-fit:cover;
+  border-radius:var(--radius-xs);
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  transition:transform 0.3s ease;
+}
+.season-gallery .sg-wide img{
+  height:160px;
+}
+.season-gallery img:active{
+  transform:scale(1.02);
+}
+
+/* ═══════════════════════════════════════
+   ★ EPISODES
+   ═══════════════════════════════════════ */
+.episode{
+  background:var(--white);border-radius:var(--radius);
+  padding:20px 18px;margin-bottom:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.04);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.episode-char{
+  width: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.episode-char img{width:56px;height:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.1))}
+.episode-content{flex:1}
+.episode-label{
+  display:inline-block;font-size:0.6rem;font-weight:700;
+  padding:2px 10px;border-radius:8px;margin-bottom:8px;letter-spacing:0.04em;
+}
+.el-blue{background:var(--royal-pale);color:var(--royal)}
+.el-purple{background:var(--purple-pale);color:var(--purple)}
+.el-gold{background:var(--gold-pale);color:var(--gold-deep)}
+.episode-title{
+  font-family:var(--font-display);font-size:0.92rem;font-weight:800;
+  margin-bottom:6px;color:var(--charcoal);
+}
+.episode-body{font-size:0.78rem;color:var(--charcoal-light);line-height:1.85}
+
+/* ═══════════════════════════════════════
+   ★ FUTURE
+   ═══════════════════════════════════════ */
+.future-list{list-style:none}
+.future-list li{
+  position:relative;padding:14px 16px 14px 46px;
+  background:var(--white);border-radius:var(--radius-sm);
+  margin-bottom:8px;font-size:0.84rem;font-weight:500;
+  color:var(--charcoal);
+  box-shadow:0 1px 6px rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.04);
+}
+.future-list li::before{
+  content:'';position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  width:20px;height:20px;border-radius:8px;
+  background:linear-gradient(135deg, var(--royal-pale), var(--purple-pale));
+}
+.future-list li::after{
+  content:'';position:absolute;left:22px;top:50%;transform:translateY(-50%);
+  width:8px;height:8px;border-radius:50%;
+  background:linear-gradient(135deg, var(--royal), var(--purple));
+}
+.future-desc{font-size:0.7rem;color:var(--charcoal-muted);margin-top:2px;font-weight:400}
+
+/* ═══════════════════════════════════════
+   ★ MESSAGE BOX
+   ═══════════════════════════════════════ */
+.message-box{
+  background: linear-gradient(135deg, var(--royal-pale) 0%, var(--purple-pale) 100%);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  text-align: center;
+  border: 1px solid rgba(65,105,225,0.1);
+  position: relative;
+  overflow: hidden;
+}
+.message-box::before{
+  content: '';
+  position: absolute;
+  bottom: -10px; right: -10px;
+  width: 100px; height: 100px;
+  background: rgba(65,105,225,0.05);
+  border-radius: 50%;
+}
+.message-box p{
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 2.1;
+  color: var(--charcoal);
+  position: relative;
+}
+.message-char{
+  width: 70px;
+  margin: 16px auto 0;
+}
+.message-char img{width:100%;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.1))}
+
+/* ═══════════════════════════════════════
+   ★ FOOTER
+   ═══════════════════════════════════════ */
+.footer{
+  background: linear-gradient(155deg, var(--charcoal) 0%, #1a1a2e 100%);
+  color: rgba(255,255,255,0.65);
+  padding: 32px 22px 40px;
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.72rem;
+  line-height: 1.8;
+}
+.footer-logo{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--white);
+  font-weight: 800;
+  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+}
+.footer-type{
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 14px;
+}
+.footer-info{margin-bottom: 14px}
+.footer a{color: var(--gold);text-decoration:none}
+.footer-copy{margin-top:14px;font-size:0.6rem;opacity:0.35}
+
+/* ═══════════════════════════════════════
+   ★ SCROLLBAR
+   ═══════════════════════════════════════ */
+::-webkit-scrollbar{width:0}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════════
+       HERO
+       ══════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2 l3 7 h7 l-5.5 4.5 l2 7-6.5-5-6.5 5 l2-7-5.5-4.5 h7 z"/></svg>
+        ANNUAL REPORT 2025
+      </div>
+      <h1 class="hero-title">ぷろらぼ<br>2025年度<br>活動報告</h1>
+      <p class="hero-sub">"好き"と"得意"で育む<br>自信と生きる力</p>
+      <span class="hero-period">2025年4月 ─ 2026年3月</span>
+      <div class="hero-character">
+        <img src="assets/A-1・手を挙げている-transparent.png" alt="ぷろらぼキャラクター" loading="lazy">
+      </div>
+      <div class="hero-curve"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       代表ご挨拶
+       ══════════════════════════════════ -->
+  <section class="reveal">
+    <div class="sec-label">
+      <div class="sec-icon ic-blue">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9 l9 6 l9-6"/></svg>
+      </div>
+      <span class="sec-title">代表ご挨拶</span>
+      <span class="sec-line"></span>
+    </div>
+    <div class="greeting">
+      <div class="greeting-body">
+        <p>保護者の皆さまへ</p>
+        <p>日頃よりぷろらぼの活動にご理解とご協力をいただき、心より感謝申し上げます。</p>
+        <p>2025年度は、子どもたち一人ひとりの「好き」と「得意」に寄り添いながら、たくさんの笑顔と成長に出会うことができた一年でした。</p>
+        <p>生成AIやプログラミングに夢中になる子、友達と一緒にRobloxでゲーム制作に取り組む子、仲間との関わりの中で少しずつ自信をつけていく子──それぞれのペースで、確かな一歩を踏み出す姿を見守ることができました。</p>
+        <p>この報告書を通じて、ぷろらぼでの日々の様子をお伝えできれば幸いです。来年度も、お子さまの「生きる力」を育むお手伝いを、スタッフ一同全力で取り組んでまいります。</p>
+      </div>
+      <div class="greeting-sign">代表 本間佳澄</div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark"></span></div>
+
+  <!-- ══════════════════════════════════
+       療育理念
+       ══════════════════════════════════ -->
+  <section class="reveal">
+    <div class="sec-label">
+      <div class="sec-icon ic-purple">
+        <svg viewBox="0 0 24 24"><path d="M12 2 v20"/><path d="M17 7 l-5-5-5 5"/><path d="M7 12 h10"/><path d="M7 17 h10"/></svg>
+      </div>
+      <span class="sec-title">ぷろらぼの療育理念</span>
+      <span class="sec-line"></span>
+    </div>
+    <div class="philosophy">
+      <p class="philosophy-quote">
+        "好き"と"得意"を見つけ<br>
+        "自信を持って生きる力"と<br>
+        "心"を育てます
+      </p>
+      <div class="philosophy-pillars">
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><path d="M3 9 l9-6 9 6 v11 h-18 z"/><path d="M9 22 v-8 h6 v8"/></svg>
+          <div class="pillar-name">安心の居場所</div>
+          <div class="pillar-desc">温かい雰囲気の<br>少人数制支援</div>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17 v4"/><path d="M8 21 h8"/></svg>
+          <div class="pillar-name">IT・プログラミング</div>
+          <div class="pillar-desc">遊びから始まる<br>創造的な学び</div>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="1"/><circle cx="12" cy="7" r="2"/><path d="M9 12 h6"/><path d="M9 15 h6"/></svg>
+          <div class="pillar-name">AI活用学習支援</div>
+          <div class="pillar-desc">生成AI・教材で<br>個別最適化</div>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M5 21 c0-4 3-7 7-7 s7 3 7 7"/></svg>
+          <div class="pillar-name">不登校支援</div>
+          <div class="pillar-desc">安心できる<br>居場所づくり</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark"></span></div>
+
+  <!-- ══════════════════════════════════
+       支援の取り組み
+       ══════════════════════════════════ -->
+  <section class="reveal">
+    <div class="sec-label">
+      <div class="sec-icon ic-gold">
+        <svg viewBox="0 0 24 24"><path d="M12 2 l3 7 h7 l-5.5 4.5 2 7-6.5-5-6.5 5 2-7-5.5-4.5 h7 z"/></svg>
+      </div>
+      <span class="sec-title">支援の取り組み</span>
+      <span class="sec-line"></span>
+    </div>
+
+    <!-- Card 1: 生成AI教育 -->
+    <div class="support-card reveal stagger-1">
+      <div class="sc-top">
+        <div class="sc-badge bg-royal">
+          <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="1"/><circle cx="12" cy="7" r="2"/><path d="M9 12 h6"/><path d="M9 15 h6"/></svg>
+        </div>
+        <div class="sc-info">
+          <div class="sc-title">プログラミング的思考の醸成</div>
+          <span class="sc-feature">ぷろらぼの最大の特色</span>
+        </div>
+      </div>
+      <div class="sc-with-char">
+        <div class="sc-desc-area">
+          <p class="sc-desc" style="padding:0;margin-bottom:10px">生成AI（ChatGPT・Gemini等）を活用した最先端のプログラミング教育を実施。AIを「道具」として使いこなしながら、論理的に考え・組み立てる力を育みます。</p>
+        </div>
+        <div class="sc-char">
+          <img src="assets/C-4・タブレットを見ている様子.png" alt="タブレットを見ているキャラクター" loading="lazy">
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">ChatGPT</span>
+        <span class="sc-tag">Gemini</span>
+        <span class="sc-tag">プロンプト工学</span>
+        <span class="sc-tag">AIリテラシー</span>
+      </div>
+      <div class="sc-accent ac-royal"></div>
+    </div>
+
+    <!-- Card 2: IT教育 -->
+    <div class="support-card reveal stagger-2">
+      <div class="sc-top">
+        <div class="sc-badge bg-purple">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17 v4"/><path d="M8 21 h8"/></svg>
+        </div>
+        <div class="sc-info">
+          <div class="sc-title">IT教育・プログラミング</div>
+        </div>
+      </div>
+      <div class="sc-with-char">
+        <div class="sc-desc-area">
+          <p class="sc-desc" style="padding:0;margin-bottom:10px">「遊び」の延長線上でプログラミングを学ぶ。Robloxでのゲーム制作に特に力を入れており、動画編集やSNS安全教育も提供しています。</p>
+        </div>
+        <div class="sc-char">
+          <img src="assets/B-2・PCに向かっている-transparent.png" alt="PCに向かうキャラクター" loading="lazy">
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">Scratch</span>
+        <span class="sc-tag">Roblox</span>
+        <span class="sc-tag">Python</span>
+        <span class="sc-tag">動画編集</span>
+        <span class="sc-tag">情報リテラシー</span>
+      </div>
+      <div class="sc-accent ac-purple"></div>
+    </div>
+
+    <!-- Card 3: ぷろらぼ研究所 -->
+    <div class="support-card reveal stagger-3">
+      <div class="sc-top">
+        <div class="sc-badge bg-gold">
+          <svg viewBox="0 0 24 24"><path d="M12 2 l3 7 h7 l-5.5 4.5 2 7-6.5-5-6.5 5 2-7-5.5-4.5 h7 z"/></svg>
+        </div>
+        <div class="sc-info">
+          <div class="sc-title">ぷろらぼ研究所</div>
+          <span class="sc-feature" style="background:linear-gradient(135deg,var(--gold-deep),var(--gold))">2025年11月始動</span>
+        </div>
+      </div>
+      <div class="sc-with-char">
+        <div class="sc-desc-area">
+          <p class="sc-desc" style="padding:0;margin-bottom:10px">子どもたちが「研究員」として主体的に学ぶ独自の仕組み。AIを活用した個別最適化学習で一人ひとりに合った学びを提供し、成果がバッジとして可視化されることで達成感とモチベーションを高めます。</p>
+        </div>
+        <div class="sc-char">
+          <img src="assets/A-3・バッジをつけている.png" alt="バッジをつけたキャラクター" loading="lazy">
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">研究員証</span>
+        <span class="sc-tag">バッジシステム</span>
+        <span class="sc-tag">AI個別最適化学習</span>
+        <span class="sc-tag">マイページ</span>
+      </div>
+      <div class="sc-accent ac-gold"></div>
+    </div>
+
+    <!-- Card 4: 不登校支援 -->
+    <div class="support-card reveal stagger-4">
+      <div class="sc-top">
+        <div class="sc-badge bg-purple">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M5 21 c0-4 3-7 7-7 s7 3 7 7"/></svg>
+        </div>
+        <div class="sc-info">
+          <div class="sc-title">不登校支援・心のケア</div>
+        </div>
+      </div>
+      <div class="sc-with-char">
+        <div class="sc-desc-area">
+          <p class="sc-desc" style="padding:0;margin-bottom:10px">安心できる居場所を基盤に、経験豊富なスタッフが一人ひとりに寄り添った個別支援を実施。自分のペースで「好き」や「得意」を見つけながら、自信と次のステップへの意欲を育みます。</p>
+        </div>
+        <div class="sc-char">
+          <img src="assets/D-1・大きいキャラクターが小さいキャラクターをサポート-transparent.png" alt="サポートするキャラクター" loading="lazy">
+        </div>
+      </div>
+      <div class="sc-tags">
+        <span class="sc-tag">個別支援</span>
+        <span class="sc-tag">SST</span>
+        <span class="sc-tag">居場所づくり</span>
+        <span class="sc-tag">音楽療育</span>
+      </div>
+      <div class="sc-accent ac-purple"></div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark"></span></div>
+
+  <!-- ══════════════════════════════════
+       月別タイムライン
+       ══════════════════════════════════ -->
+  <section class="reveal">
+    <div class="sec-label">
+      <div class="sec-icon ic-blue">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2 v4"/><path d="M8 2 v4"/><path d="M3 10 h18"/></svg>
+      </div>
+      <span class="sec-title">1年間の歩み</span>
+      <span class="sec-line"></span>
+    </div>
+    <div class="season-timeline">
+
+      <!-- 春 4〜5月 -->
+      <div class="season-card season-spring reveal">
+        <div class="season-header">
+          <svg viewBox="0 0 24 24"><path d="M12 3 c0 0-4 4-4 8 a4 4 0 0 0 8 0 c0-4-4-8-4-8z"/><path d="M12 15 v6"/><path d="M9 18 h6"/></svg>
+          <span class="season-name">Spring</span>
+          <span class="season-months">4月 ─ 5月</span>
+        </div>
+        <div class="season-body">
+          <div class="season-item">
+            <p class="season-item-title">新年度スタート</p>
+            <p class="season-item-text">新しい仲間を迎え、今年度の活動計画を共有。一人ひとりの「好き」や「やりたいこと」を確認しました。</p>
+          </div>
+          <div class="season-item">
+            <p class="season-item-title">生成AI体験会</p>
+            <p class="season-item-text">ChatGPTを使った体験会を開催。「AIに上手に質問する方法」をみんなで学びました。</p>
+          </div>
+          <div class="season-gallery">
+            <div class="sg-wide"><img src="assets/photos/spring-1.jpg" alt="春の公園活動" loading="lazy"></div>
+            <div><img src="assets/photos/spring-2.jpg" alt="春の活動" loading="lazy"></div>
+            <div><img src="assets/photos/spring-3.jpg" alt="春の活動" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 夏 6〜8月 -->
+      <div class="season-card season-summer reveal">
+        <div class="season-header">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2 v3"/><path d="M12 19 v3"/><path d="M2 12 h3"/><path d="M19 12 h3"/><path d="M4.9 4.9 l2.1 2.1"/><path d="M17 17 l2.1 2.1"/><path d="M4.9 19.1 l2.1-2.1"/><path d="M17 7 l2.1-2.1"/></svg>
+          <span class="season-name">Summer</span>
+          <span class="season-months">6月 ─ 8月</span>
+        </div>
+        <div class="season-body">
+          <div class="season-item">
+            <p class="season-item-title">流しそうめん・縁日</p>
+            <p class="season-item-text">夏の恒例イベントを開催。流しそうめんや縁日遊びを通じて、仲間との楽しい思い出をつくりました。</p>
+          </div>
+          <div class="season-item">
+            <p class="season-item-title">夏休み特別プログラム</p>
+            <p class="season-item-text">Robloxでのゲーム開発やAIアート制作に挑戦。いつもより長い時間、じっくり取り組めた充実の夏でした。</p>
+          </div>
+          <div class="season-item">
+            <p class="season-item-title">調理実習（毎月実施）</p>
+            <p class="season-item-text">月に1回の調理実習では、みんなで協力してメニューを考え、買い物から調理まで体験。生活力も育んでいます。</p>
+          </div>
+          <div class="season-gallery">
+            <div class="sg-wide"><img src="assets/photos/summer-1.jpg" alt="流しそうめん" loading="lazy"></div>
+            <div><img src="assets/photos/summer-2.jpg" alt="縁日" loading="lazy"></div>
+            <div><img src="assets/photos/summer-3.jpg" alt="調理実習" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 秋 9〜11月 -->
+      <div class="season-card season-autumn reveal">
+        <div class="season-header">
+          <svg viewBox="0 0 24 24"><path d="M11 20 c0 0-8-8 0-16 c0 0 4 4 6 8 c2-4 6-8 6-8 c8 8 0 16 0 16"/><path d="M12 10 v10"/></svg>
+          <span class="season-name">Autumn</span>
+          <span class="season-months">9月 ─ 11月</span>
+        </div>
+        <div class="season-body">
+          <div class="season-item">
+            <p class="season-item-title">ハロウィンパーティー</p>
+            <p class="season-item-text">仮装やゲームでみんなで盛り上がりました。お菓子を交換したり、飾り付けも子どもたちが制作しました。</p>
+          </div>
+          <div class="season-item">
+            <p class="season-item-title">ぷろらぼ研究所 始動</p>
+            <p class="season-item-text">子どもたちが「研究員」として主体的に学ぶ新制度がスタート。研究員証の授与やバッジシステム、マイページの運用が始まりました。</p>
+          </div>
+          <div class="season-gallery">
+            <div class="sg-wide"><img src="assets/photos/autumn-1.jpg" alt="ハロウィンパーティー" loading="lazy"></div>
+            <div><img src="assets/photos/autumn-2.jpg" alt="秋の活動" loading="lazy"></div>
+            <div><img src="assets/photos/autumn-3.jpg" alt="ハロウィン" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 冬 12〜3月 -->
+      <div class="season-card season-winter reveal">
+        <div class="season-header">
+          <svg viewBox="0 0 24 24"><path d="M12 2 v20"/><path d="M2 12 h20"/><path d="M6 6 l12 12"/><path d="M18 6 l-12 12"/><path d="M12 5 l-2-2 m2 2 l2-2"/><path d="M12 19 l-2 2 m2-2 l2 2"/></svg>
+          <span class="season-name">Winter</span>
+          <span class="season-months">12月 ─ 3月</span>
+        </div>
+        <div class="season-body">
+          <div class="season-item">
+            <p class="season-item-title">クリスマスイベント</p>
+            <p class="season-item-text">プレゼント交換やゲーム大会で盛り上がったクリスマスイベント。みんなの笑顔があふれる一日でした。</p>
+          </div>
+          <div class="season-item">
+            <p class="season-item-title">餅つき</p>
+            <p class="season-item-text">みんなで力を合わせてお餅をつきました。つきたてのお餅を一緒に食べて、冬の楽しいひとときを過ごしました。</p>
+          </div>
+          <div class="season-item">
+            <p class="season-item-title">1年間のまとめ・お祝い会</p>
+            <p class="season-item-text">この1年の成長を振り返り、卒業するお友達を送り出しました。</p>
+          </div>
+          <div class="season-gallery">
+            <div class="sg-wide"><img src="assets/photos/winter-1.jpg" alt="雪遊び" loading="lazy"></div>
+            <div><img src="assets/photos/winter-2.jpg" alt="もちつき" loading="lazy"></div>
+            <div><img src="assets/photos/winter-3.jpg" alt="クリスマス" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark"></span></div>
+
+  <!-- ══════════════════════════════════
+       成長エピソード
+       ══════════════════════════════════ -->
+  <section class="reveal">
+    <div class="sec-label">
+      <div class="sec-icon ic-purple">
+        <svg viewBox="0 0 24 24"><path d="M12 2 l1.5 3 3.5 0.5-2.5 2.5 0.5 3.5-3-1.5-3 1.5 0.5-3.5-2.5-2.5 3.5-0.5 z"/></svg>
+      </div>
+      <span class="sec-title">子どもたちの成長</span>
+      <span class="sec-line"></span>
+    </div>
+
+    <div class="episode reveal stagger-1">
+      <div class="episode-char">
+        <img src="assets/B-2・PCに向かっている-transparent.png" alt="" loading="lazy">
+      </div>
+      <div class="episode-content">
+        <span class="episode-label el-blue">プログラミング</span>
+        <p class="episode-title">「Robloxで自分のゲームが完成した！」</p>
+        <p class="episode-body">最初はマウスの操作もおぼつかなかったのが、半年後にはRobloxで自分だけのゲームを完成。友達に遊んでもらえた時の笑顔が忘れられません。</p>
+      </div>
+    </div>
+
+    <div class="episode reveal stagger-2">
+      <div class="episode-char">
+        <img src="assets/C-3・ガッツポーズ-transparent.png" alt="" loading="lazy">
+      </div>
+      <div class="episode-content">
+        <span class="episode-label el-purple">生成AI活用</span>
+        <p class="episode-title">「AIに質問するのが上手になった！」</p>
+        <p class="episode-body">最初は「わからない」と手が止まっていたのが、ChatGPTへの質問の仕方を学ぶうちに自分で調べる力がつきました。探究学習ではAIを活用してレポートをまとめ、みんなの前で堂々と発表できるようになりました。</p>
+      </div>
+    </div>
+
+    <div class="episode reveal stagger-3">
+      <div class="episode-char">
+        <img src="assets/D-1・大きいキャラクターが小さいキャラクターをサポート-transparent.png" alt="" loading="lazy">
+      </div>
+      <div class="episode-content">
+        <span class="episode-label el-gold">自信・社会性</span>
+        <p class="episode-title">「進路の選択肢が広がった」</p>
+        <p class="episode-body">小学校で不登校を経験しましたが、ぷろらぼで自分のペースで学び続けるうちに自信を取り戻し、安心して通える進学先を見つけることができました。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-mark"></span></div>
+
+  <!-- ══════════════════════════════════
+       来年度に向けて
+       ══════════════════════════════════ -->
+  <section class="reveal">
+    <div class="sec-label">
+      <div class="sec-icon ic-gold">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8 v8"/><path d="M8 12 h8"/></svg>
+      </div>
+      <span class="sec-title">来年度に向けて</span>
+      <span class="sec-line"></span>
+    </div>
+
+    <ul class="future-list">
+      <li class="reveal stagger-1">
+        プログラミング的思考教育のさらなる深化
+        <div class="future-desc">生成AIを活用した最先端の教育プログラムを拡充します</div>
+      </li>
+      <li class="reveal stagger-2">
+        Roblox・プログラミング大会への挑戦
+        <div class="future-desc">外部コンテストへの参加で、より大きな舞台を経験します</div>
+      </li>
+      <li class="reveal stagger-3">
+        情報リテラシー教育の強化
+        <div class="future-desc">SNS安全教育・フェイクニュース対策をさらに充実させます</div>
+      </li>
+      <li class="reveal stagger-4">
+        保護者との連携強化
+        <div class="future-desc">定期的な情報共有と相談の場をさらに増やしてまいります</div>
+      </li>
+      <li class="reveal stagger-5">
+        体験活動・地域交流の充実
+        <div class="future-desc">地域イベント参加やボランティア活動を広げます</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══════════════════════════════════
+       メッセージ
+       ══════════════════════════════════ -->
+  <section class="reveal" style="margin-top:4px">
+    <div class="message-box">
+      <p>
+        お子さまの「好き」が<br>
+        「自信」に変わる瞬間を<br>
+        これからも一緒に<br>
+        見守ってまいります。
+      </p>
+      <div class="message-char">
+        <img src="assets/D-2・一緒に活動-transparent.png" alt="一緒に活動するキャラクター" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       フッター
+       ══════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-logo">ぷろらぼ</div>
+    <div class="footer-type">児童発達支援・放課後等デイサービス</div>
+    <div class="footer-info">
+      〒063-0061 札幌市西区西町南21丁目2番15号<br>
+      第一ワコービル 1階A<br>
+      TEL 050-3188-8144<br>
+      火〜土 9:30〜18:30
+    </div>
+    <a href="https://pro-labo.net">pro-labo.net</a>
+    <p class="footer-copy">&copy; 2026 ぷろらぼ All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, {threshold: 0.12, rootMargin: '0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el) });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /report-2025-a7k9m2/
